@@ -1,0 +1,26 @@
+{
+  "pacientes": {
+    "paciente1": {
+      "nombre": "Juan",
+      "apellidoPaterno": "Pérez",
+      "apellidoMaterno": "Gómez",
+      "numeroSeguroSocial": "123456789",
+      "accesible": true
+    },
+    "paciente2": {
+      "nombre": "María",
+      "apellidoPaterno": "González",
+      "apellidoMaterno": "López",
+      "numeroSeguroSocial": "987654321",
+      "accesible": true
+    },
+    "paciente3": {
+      "nombre": "Carlos",
+      "apellidoPaterno": "Martínez",
+      "apellidoMaterno": "Hernández",
+      "numeroSeguroSocial": "456789123",
+      "accesible": false
+    }
+  },
+  "logs": {}
+}
