@@ -8,6 +8,26 @@ admin.initializeApp();
 
 const db = admin.database();
 
+// Crear un nuevo paciente
+exports.crearPaciente = funciones.https.onRequest((req, res) => {
+
+  const nuevoPaciente = req.body;
+
+  if (!nuevoPaciente) {
+    return res.status().json({ error: 'Datos no proporcionados' });
+  }
+
+  const refPacientes = db.ref('pacientes');
+  const refNuevoPaciente = refPacientes.push();
+  refNuevoPaciente.set(nuevoPaciente)
+    .then(() => {
+      return res.status().json({ message: 'Paciente creado exitosamente' });
+    })
+    .catch((error) => {
+      return res.status().json({ error: error.message });
+    });
+});
+
   // Función para obtener todos los paciente
 exports.obtenerTodosLosPacientes = functions.https.onRequest((req, res) => {
 
@@ -20,15 +40,3 @@ exports.obtenerTodosLosPacientes = functions.https.onRequest((req, res) => {
       return res.status().json({ error: error.message });
     });
   });
-
-  // Crear un nuevo paciente
-    exports.crearPaciente = funciones.https.onRequest((req, res) => {
-    
-    const nuevoPaciente = req.body
-  
-    if (!nuevoPaciente) {
-      return res.status().json({ error: '' });
-    }
-    const refPacientes = db.ref('pacientes');
-    const refNuevoPaciente = refPacientes.push();
-   
